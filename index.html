@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload file</title>
+</head>
+<body onload="loader()">
+    <div id="mainload" class="mainload loadd">
+        <div id="load"></div>
+    </div>
+    
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div>
+            <input class="upload" type="file" name="image">
+        </div><br>
+        <button id="btn" type="submit">Upload</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
