@@ -1,14 +1,15 @@
 const express = require('express');
+var path = require('path')
 const multer = require('multer');
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //file upload
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/')
+      cb(null, 'uploaded file/')
     },
     filename: function (req, file, cb) {
       const name = Date.now() +"-" + file.originalname;
@@ -20,6 +21,7 @@ const storage = multer.diskStorage({
 
 app.get('/',(req,res)=>{
     res.status(200).sendFile(__dirname+'/index.html');
+    console.log(req.url);
 });
 
 app.post('/', upload.single('image'),(req,res)=>{
